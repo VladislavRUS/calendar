@@ -7,7 +7,7 @@ export const isCreateEventModalOpenedSelector = (state: ApplicationState) => sta
 export const createEventDateSelector = (state: ApplicationState) => state.events.createEventDate;
 export const eventsSelector = (state: ApplicationState) => state.events.events;
 
-export const monthEventsSelect = (month: number) =>
+export const monthEventsSelector = (month: number) =>
   createSelector([eventsSelector], (events) => {
     const monthDate = set(new Date(), { month });
 

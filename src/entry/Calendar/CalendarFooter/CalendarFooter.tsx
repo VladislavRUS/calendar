@@ -4,7 +4,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { deleteEventsAction } from 'store/events/actions';
 import { monthSelector } from 'store/calendar/selectors';
 import { Wrapper, EventsNumber, StyledButton } from './CalendarFooter.styles';
-import { monthEventsSelect } from 'store/events/selectors';
+import { monthEventsSelector } from 'store/events/selectors';
 import { MONTH_NAMES } from 'constants/monthNames';
 import { connect } from 'react-redux';
 
@@ -13,7 +13,7 @@ const mapStateToProps = (state: ApplicationState) => {
 
   return {
     month,
-    events: monthEventsSelect(month)(state),
+    events: monthEventsSelector(month)(state),
   };
 };
 
