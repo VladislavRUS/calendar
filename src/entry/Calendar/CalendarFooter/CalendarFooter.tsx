@@ -37,7 +37,7 @@ const CalendarFooter: React.FC<Props> = ({ month, events, deleteEvents }) => {
   return (
     <Wrapper>
       <EventsNumber>
-        {events.length > 0 ? events.length : 'No'} events on {MONTH_NAMES[month]} -{' '}
+        {events.length > 0 ? events.length : 'No'} events on {MONTH_NAMES[month]} -
       </EventsNumber>
       <StyledButton variant="text" color="#2591ED" onClick={onDeleteAll}>
         Remove All
