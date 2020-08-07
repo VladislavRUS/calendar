@@ -4,13 +4,15 @@ import endOfMonth from 'date-fns/endOfMonth';
 import set from 'date-fns/set';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import getDay from 'date-fns/getDay';
+import isSameDay from 'date-fns/isSameDay';
+import { createSelector } from 'reselect';
+import { eventsSelector } from 'store/events/selectors';
 
+export const nowSelector = (state: ApplicationState) => state.calendar.now;
 export const yearSelector = (state: ApplicationState) => state.calendar.year;
 export const monthSelector = (state: ApplicationState) => state.calendar.month;
-export const daysSelector = (state: ApplicationState) => {
-  const month = monthSelector(state);
-  const year = yearSelector(state);
 
+export const daysSelector = createSelector([monthSelector, yearSelector], (month, year) => {
   const date = set(new Date(), { month, year });
 
   const start = startOfMonth(date);
@@ -31,4 +33,9 @@ export const daysSelector = (state: ApplicationState) => {
   }
 
   return interval;
-};
+});
+
+export const dayEventsSelector = (date: Date) =>
+  createSelector([eventsSelector], (events) => {
+    return events.filter((event) => isSameDay(event.date, date));
+  });

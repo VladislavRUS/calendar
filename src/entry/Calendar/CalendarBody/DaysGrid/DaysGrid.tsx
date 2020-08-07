@@ -13,14 +13,12 @@ type StateProps = ReturnType<typeof mapStateToProps>;
 
 type Props = StateProps;
 
-const DaysGrid: React.FC<Props> = ({ days }) => {
-  return (
-    <Wrapper>
-      {days.map((day) => (
-        <Day date={day} />
-      ))}
-    </Wrapper>
-  );
-};
+const DaysGrid: React.FC<Props> = ({ days }) => (
+  <Wrapper>
+    {days.map((day, idx) => (
+      <Day key={idx} date={day} />
+    ))}
+  </Wrapper>
+);
 
 export default connect(mapStateToProps)(DaysGrid);

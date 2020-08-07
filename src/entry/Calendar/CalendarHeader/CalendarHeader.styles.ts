@@ -12,3 +12,7 @@ export const Date = styled.div`
   color: #000;
   text-transform: uppercase;
 `;
+
+export const ToggleWrapper = styled.div`
+  margin-left: auto;
+`;
