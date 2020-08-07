@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,EACE,qBACF,CAEA,gBAGE,WACF,CAEA,KACE,kCACF,CAEA,sBAGE,YACF","file":"main.9a13c9be.chunk.css","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\nhtml,\nbody,\n#root {\n  height: 100%;\n}\n\nbody {\n  font-family: 'Open Sans', sans-serif;\n}\n\nbutton,\ninput,\ntextarea {\n  outline: none;\n}\n"]}
