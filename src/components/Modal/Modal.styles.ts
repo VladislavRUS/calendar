@@ -37,6 +37,7 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 30px;
+  padding-right: 30px;
 `;
 
 export const Title = styled.div`

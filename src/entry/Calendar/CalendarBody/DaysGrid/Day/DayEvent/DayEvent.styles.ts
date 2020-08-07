@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   font-size: 8px;
   line-height: 10px;
   color: #ffffff;
+  flex-wrap: wrap;
 `;
 
 export const Time = styled.div`

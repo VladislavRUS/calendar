@@ -15,8 +15,8 @@ type Props = StateProps;
 
 const DaysGrid: React.FC<Props> = ({ days }) => (
   <Wrapper>
-    {days.map((day, idx) => (
-      <Day key={idx} date={day} />
+    {days.map((day) => (
+      <Day key={day.getTime()} date={day} />
     ))}
   </Wrapper>
 );

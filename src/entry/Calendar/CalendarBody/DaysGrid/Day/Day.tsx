@@ -54,6 +54,7 @@ const Day: React.FC<Props> = ({ now, date, month, events, openCreateEventModal }
       isCurrentDay={isCurrentDay}
       onClick={onClick}
       hasEvents={events.length > 0}
+      id={date.getTime().toString()}
     >
       <DateNumberWrapper>
         <DateNumber>{format(date, 'd')}</DateNumber>

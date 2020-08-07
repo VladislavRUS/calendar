@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   align-content: center;
   justify-content: center;
   padding: 39px 48px;
+
+  @media screen and (max-width: 600px) {
+    padding: 10px 15px;
+  }
 `;
 
 export const CalendarContainer = styled.div`

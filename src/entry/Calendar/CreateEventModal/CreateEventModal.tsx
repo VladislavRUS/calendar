@@ -6,13 +6,13 @@ import { closeCreateEventModalAction, createEventAction } from 'store/events/act
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Form, Field } from 'react-final-form';
-import { StyledInput } from './CreateEventModal.styles';
+import { StyledInput, StyledTextArea } from './CreateEventModal.styles';
 import { FormItem } from 'components/FormItem';
 import { FieldLabel } from 'components/FieldLabel';
 import { Button } from 'components/Button';
 import { ValidationErrors } from 'final-form';
 import format from 'date-fns/format';
-import { CreateEventFormValues } from 'store/events/types';
+import { EventFormValues } from 'store/events/types';
 
 const mapStateToProps = (state: ApplicationState) => ({
   isCreateEventModalOpened: isCreateEventModalOpenedSelector(state),
@@ -64,7 +64,7 @@ const CreateEventModal: React.FC<Props> = ({
   closeCreateEventModal,
   createEvent,
 }) => {
-  const onSubmit = (values: CreateEventFormValues) => {
+  const onSubmit = (values: EventFormValues) => {
     createEvent(values);
   };
 
@@ -81,15 +81,15 @@ const CreateEventModal: React.FC<Props> = ({
         render={({ handleSubmit, hasValidationErrors }) => (
           <form onSubmit={handleSubmit} autoComplete="off">
             <FormItem>
-              <FieldLabel htmlFor="time">Enter time</FieldLabel>
-
-              <Field name="time" type="time" render={({ input }) => <StyledInput id="time" {...input} />} />
-            </FormItem>
-
-            <FormItem>
               <FieldLabel htmlFor="title">Enter title</FieldLabel>
 
               <Field name="title" render={({ input }) => <StyledInput id="title" placeholder="Title" {...input} />} />
+            </FormItem>
+
+            <FormItem>
+              <FieldLabel htmlFor="time">Enter time</FieldLabel>
+
+              <Field name="time" type="time" render={({ input }) => <StyledInput id="time" {...input} />} />
             </FormItem>
 
             <FormItem>
@@ -97,7 +97,9 @@ const CreateEventModal: React.FC<Props> = ({
 
               <Field
                 name="description"
-                render={({ input }) => <StyledInput id="description" placeholder="Description" {...input} />}
+                render={({ input }) => (
+                  <StyledTextArea id="description" placeholder="Description" {...input} rows={5} />
+                )}
               />
             </FormItem>
 

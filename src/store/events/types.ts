@@ -9,6 +9,8 @@ export enum EventsActionTypes {
   CLOSE_CREATE_EVENT_MODAL = '@@events/CLOSE_CREATE_EVENT_MODAL',
   CREATE_EVENT = '@@events/CREATE_EVENT',
   SET_EVENTS = '@@events/SET_EVENTS',
+  UPDATE_EVENT = '@@events/UPDATE_EVENT',
+  DELETE_EVENTS = '@@events/DELETE_EVENTS',
 }
 
 export type Event = {
@@ -19,4 +21,4 @@ export type Event = {
   description: string;
 };
 
-export type CreateEventFormValues = Omit<Event, 'id'>;
+export type EventFormValues = Omit<Event, 'id'>;
